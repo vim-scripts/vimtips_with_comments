@@ -1,0 +1,26 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1619
+
+   Yes, we can get a tarball of vimtips from http://vim.sf.net/tip_download.php, but there are several things missing, for example, there is no comments and no rate record. But they are really very helpful especially when there are many tips in the tip's comments inspired by the current tip. And the rate is also very useful when we need to review tons of tips. Sometime I want to sort all the tips based on the quotient of rating, usally I can find some very useful but not popular tips by this way :)
+   In fact, I think there are many other ways to make full use of vim tips, I think post tips about how to make full use of vim tips as a new vim tip will be interesting ;) 
+   I make this tarball to make my life easier and hope it will be helpful to you. 
+
+   In practice, I use the following script to grab all the scripts. It is not perfect but it works well. Feel free to modify it to make it more powerful and don't forget to tell about your progress :)
+
+==================================>8=========================================
+
+#! /usr/bin/env bash
+
+w3m -dump http://vim.sourceforge.net/tips/tip.php?tip_id=$1 |cut -c 28- | sed -ne '1i\
+======================================================================\
+
+1,4d
+/^\s*\[Add Note\]/Q
+p'
+
+===================================>8===========================================
+
+   TODO: 
+        * add a colorscheme for tips with comments
+   
+
+
